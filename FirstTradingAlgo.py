@@ -47,7 +47,7 @@ total_df.columns=["Closing_Price","50_SMA","200_SMA","10_EMA"]
 
 #create buy and sell signals based off of moving average crossover.
 #genereates BUY signal when 10 EMA crosses 50SMA while above 200 SMA, SELL when crossing back below 50SMA
-#Also generates BUY signal when 10 EMA crosses above 200 SMA, signifying the the stock has strong momentum
+#Also generates BUY signal when 10 EMA crosses above 200 SMA, signifying the the stock has strong momentum, sells if 10EMA crosses below 50SMA or 200SMA
 
 signals = pd.DataFrame(index=total_df.index) #initializing
 signals["signals"]=np.where((total_df['10_EMA'][::]>total_df['50_SMA']) & (total_df['200_SMA'][::]<total_df['10_EMA'][::]),1.0,0.0)
